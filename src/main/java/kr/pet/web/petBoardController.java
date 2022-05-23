@@ -14,6 +14,9 @@ public class petBoardController {
 	@Inject
 	private petBoardMapper mapper;	
 	
-	
+	@RequestMapping("/pethome.do")
+	public void pethome() {
+		System.out.println("홈페이지 실행");
+	}
 
 }
