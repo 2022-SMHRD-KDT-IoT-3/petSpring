@@ -7,8 +7,7 @@
 </head>
 <body>
 <h1>
-	Hello world!  
-	ㅇㅇㅇㅇㅇㅇㅇ
+	펫텔리어 웹 홈페이지 
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
