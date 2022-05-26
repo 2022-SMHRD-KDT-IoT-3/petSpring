@@ -7,13 +7,10 @@ import org.apache.ibatis.annotations.Mapper;
 import kr.pet.mapper.petMemberVO;
 
 
-
-
-
 @Mapper
 public interface petMemberMapper {
 
-	petMemberVO loginSelectOne(petMemberVO vo);
+	public petMemberVO loginSelectOne(petMemberVO vo);
 	
 	public void joinInsert(petMemberVO vo);
 	
