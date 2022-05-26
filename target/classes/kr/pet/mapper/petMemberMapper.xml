@@ -1,3 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.pet.mapper.petMemberMapper"></mapper>
+<mapper namespace="kr.pet.mapper.petMemberMapper">
+    <select id="loginSelectOne" parameterType="kr.pet.mapper.petMemberVO" resultType="kr.pet.mapper.petMemberVO">
+        select * from tbl_member where mb_id=#{mb_id} and mb_pw=#{mb_pw}
+    </select>
+    <insert id="joinInsert" parameterType="kr.pet.mapper.petMemberVO">
+        insert into tbl_member values(#{mb_id},#{mb_pw},#{mb_nick},#{mb_name},
+        #{mb_phone},#{mb_address},#{mb_joindate},#{mb_type})
+    </insert>
+    <select id="memberList" resultType="kr.pet.mapper.petMemberVO">
+        select * from tbl_member where mb_id not in ('admin')
+    </select>
+    <select id="idCheck" parameterType="String" resultType="kr.pet.mapper.petMemberVO">
+        select * from tbl_member where mb_id=#{mb_id}
+    </select>
+    <update id="updateService" parameterType="kr.pet.mapper.petMemberVO" >
+        update member set mb_pw=#{mb_pw}, mb_nick=#{mb_nick},mb_name=#{mb_name},mb_phone=#{mb_phone},
+        mb_address=#{mb_address} where mb_id=#{mb_id}
+    </update>
+    
+    
+    
+    
+    
+</mapper>
