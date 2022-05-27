@@ -1,3 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.pet.mapper.petBoardMapper"></mapper>
+<mapper namespace="kr.pet.mapper.petBoardMapper">
+    <select id="boardList" resultType="kr.pet.mapper.petBoardVO">
+        select * from tbl_board order by board_date desc;
+    </select>
+    <insert id="boardInsert" parameterType="kr.pet.mapper.petBoardVO">
+        insert into tbl_board(board_title,board_content,mb_id)
+        values(#{board_title},#{board_content},#{mb_id})
+    </insert>
+    <select id="boardContents" parameterType="int" resultType="kr.pet.mapper.petBoardVO">
+		 select * from tbl_board where board_seq=#{board_seq}
+    </select>
+    <update id="boardUpdate" parameterType="kr.pet.mapper.petBoardVO">
+        update tbl_board set board_title=#{board_title}, board_content=#{board_content} where board_seq=#{board_seq}
+    </update>
+    <delete id="boardDelete" parameterType="int">
+        delete from tbl_board where board_seq=#{board_seq}
+    </delete>
+    <update id="viewcount" parameterType="int">
+        update tbl_board set board_viewcount = board_viewcount + 1 where board_seq = #{board_seq}
+    </update>
+    
+    
+    
+</mapper>

@@ -1,11 +1,16 @@
 package kr.pet.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.pet.mapper.petBoardMapper;
+import kr.pet.mapper.petBoardVO;
 
 @Controller
 public class petBoardController {
@@ -18,5 +23,18 @@ public class petBoardController {
 	public void pethome() {
 		System.out.println("홈페이지 실행");
 	}
+	
+	
+	@RequestMapping("/boardList.do")
+	public @ResponseBody List<petBoardVO> boardList(Model model) {
+		System.out.println("게시판전체보기 실행");
+		List<petBoardVO> list = mapper.boardList();
+		model.addAttribute("list",list);
+		return list;
+		
+	}
 
+	
+	
 }
+
