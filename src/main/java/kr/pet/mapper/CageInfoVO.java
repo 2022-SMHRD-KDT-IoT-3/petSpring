@@ -11,10 +11,19 @@ import lombok.ToString;
 @ToString
 public class CageInfoVO {
 	private String cg_serial;
-	private String mb_id;
 	private String cg_gas;
 	private String cg_temp;
+	private String cg_hum;
 	private String cg_angle;
 	private String cg_time;
 
+	public CageInfoVO(String cg_serial, String cg_gas, String cg_temp, String cg_hum, String cg_angle) {
+		super();
+		this.cg_serial = cg_serial;
+		this.cg_gas = cg_gas;
+		this.cg_temp = cg_temp;
+		this.cg_hum = cg_hum;
+		this.cg_angle = cg_angle;
+		
+	}
 }
