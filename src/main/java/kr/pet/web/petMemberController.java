@@ -30,14 +30,13 @@ public class petMemberController {
 	
 	
 	@RequestMapping("/loginSelectOne.do") 
-	public String loginSelectOne(HttpSession session, petMemberVO vo) {
+	public void loginSelectOne(HttpSession session, petMemberVO vo) {
 		System.out.println("로그인기능실행");
 		petMemberVO info =  mapper.loginSelectOne(vo);
 		System.out.println(info);
 		if(info!=null) {
 			session.setAttribute("info", info);
 		}
-		return "redirect:/boardList.do";
 	}
 	
 	
@@ -59,6 +58,8 @@ public class petMemberController {
 	
 	@RequestMapping("/andLogin.do")
 	public @ResponseBody petMemberVO andLogin(petMemberVO vo){
+		System.out.println("로그인이 요청됨");
+		System.out.println(vo.toString());
 		petMemberVO info = mapper.loginSelectOne(vo);
 		System.out.println(info);
 		

@@ -115,6 +115,18 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
+		</dependency>
+		
+		<!-- gson이 xml을 못먹는 경우가 있어서 강제 주입 (원래는 잘 먹어서 이 코드가 안 들어 있음)-->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.5</version>
 		</dependency>     
 		
 		<!-- GSON 라이브러리 추가 -->
