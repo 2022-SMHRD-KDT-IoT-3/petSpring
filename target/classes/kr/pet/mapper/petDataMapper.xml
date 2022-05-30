@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.pet.mapper.petDataMapper">
+<insert id="dataInsert" parameterType="kr.pet.mapper.petMemberVO">
+        insert into tbl_cageinfo(cg_gas, cg_temp, cg_humi) 
+        values(#{ppm},#{tem},#{hum})
+    </insert>
+    
+</mapper>
