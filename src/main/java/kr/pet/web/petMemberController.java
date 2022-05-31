@@ -74,6 +74,8 @@ public class petMemberController {
 	//id체크 메소드
 	@RequestMapping("/idCheck.do")
 	public @ResponseBody petMemberVO idCheck(String id) {
+		System.out.println(id);
+		System.out.println("아이디체크실행");
 		petMemberVO vo = mapper.idCheck(id);
 		return vo;
 	}
