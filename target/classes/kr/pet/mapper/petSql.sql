@@ -13,5 +13,5 @@ select * from tbl_member;
 
 insert into tbl_member values("null","42321","고고",
 "고기고기고기괴","01001-0010","광주 북구","2022-05-28","유저");
-insert into tbl_dog values("gogo","최고","은","29","사람 말 잘함");
+insert into tbl_dog values("null","최고","은","29","사람 말 잘함");
 commit;
