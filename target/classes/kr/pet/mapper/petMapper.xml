@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.pet.mapper.petMapper">
+   
+      <update id="dog_update" parameterType="kr.pet.mapper.DogVO" >
+        update tbl_dog set dog_name=#{dog_name}, dog_type=#{dog_type}, dog_age=#{dog_age}, dog_etc=#{dog_etc}
+        where mb_id=#{mb_id}
+    </update>
+    
+    
+    
+</mapper>
