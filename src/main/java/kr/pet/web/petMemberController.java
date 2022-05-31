@@ -59,6 +59,8 @@ public class petMemberController {
 	
 	@RequestMapping("/andLogin.do")
 	public @ResponseBody petMemberVO andLogin(petMemberVO vo){
+		System.out.println("로그인이 요청됨");
+		System.out.println(vo.toString());
 		petMemberVO info = mapper.loginSelectOne(vo);
 		System.out.println(info);
 		
