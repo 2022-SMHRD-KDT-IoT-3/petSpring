@@ -13,7 +13,7 @@ public class DogVO {
 	private String mb_id;
 	private String dog_name;
 	private String dog_type;
-	private int dog_age;
+	private String dog_age;
 	private String dog_etc;
 	
 
