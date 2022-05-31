@@ -18,3 +18,9 @@ insert into tbl_member values("gogo1","1234","고고",
 =======
 
 >>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-IoT-3/petSpring.git
+
+
+insert into tbl_member values("sol","1234","고고",
+"고고고고고","1234","광주 북구","2022-05-28","유저");
+
+commit;
