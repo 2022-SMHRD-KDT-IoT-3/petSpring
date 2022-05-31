@@ -20,7 +20,7 @@ public class petMemberController {
 	private petMemberMapper mapper;
 	
 	
-	
+	//가입 메소드
 	@RequestMapping("/joinInsert.do")
 	public void joinInsert(petMemberVO vo) {
 		System.out.println(vo.toString());
@@ -30,6 +30,7 @@ public class petMemberController {
 	}
 	
 	
+	//로그인기능 
 	@RequestMapping("/loginSelectOne.do") 
 	public void loginSelectOne(HttpSession session, petMemberVO vo) {
 		System.out.println("로그인기능실행");
@@ -41,7 +42,7 @@ public class petMemberController {
 	}
 	
 	
-	
+	//회원정보수정메소드
 	@RequestMapping("/updateService.do")
 	public void updateService(HttpSession session, petMemberVO vo) {
 		System.out.println("회원정보실행");
@@ -50,6 +51,7 @@ public class petMemberController {
 	
 	}
 	
+	//멤버 목록 메소드
 	@RequestMapping("/memberList.do")
 	public @ResponseBody List<petMemberVO> memberList() {
 		System.out.println("멤버목록 비동기 통신");
@@ -57,6 +59,7 @@ public class petMemberController {
 		return list;
 	}
 	
+	//안드로그인메소드
 	@RequestMapping("/andLogin.do")
 	public @ResponseBody petMemberVO andLogin(petMemberVO vo){
 		System.out.println("로그인이 요청됨");
@@ -68,6 +71,16 @@ public class petMemberController {
 		
 	}
 	
+	//id체크 메소드
+	@RequestMapping("/idCheck.do")
+	public @ResponseBody petMemberVO idCheck(String id) {
+		System.out.println(id);
+		System.out.println("아이디체크실행");
+		petMemberVO vo = mapper.idCheck(id);
+		return vo;
+	}
+	
+	
 	@RequestMapping("/findId.do")
 	public @ResponseBody petMemberVO findId(String mb_phone) {
 		String mb_id;
@@ -77,8 +90,6 @@ public class petMemberController {
 		
 		return info;
 	}
-	
-	
 	
 	
 }
