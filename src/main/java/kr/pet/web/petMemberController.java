@@ -81,5 +81,15 @@ public class petMemberController {
 	}
 	
 	
+	@RequestMapping("/findId.do")
+	public @ResponseBody petMemberVO findId(String mb_phone) {
+		String mb_id;
+		System.out.println("멤버 아이디 찾기 요청");
+		petMemberVO info = mapper.findId(mb_phone);
+		System.out.println(info.toString());
+		
+		return info;
+	}
+	
 	
 }

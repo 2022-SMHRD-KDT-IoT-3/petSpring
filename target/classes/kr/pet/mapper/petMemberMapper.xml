@@ -19,6 +19,10 @@
         mb_address=#{mb_address} where mb_id=#{mb_id}
     </update>
     
+    <select id="findId" parameterType ="String" resultType="kr.pet.mapper.petMemberVO">
+        select mb_id from tbl_member where mb_phone=#{mb_phone}
+    </select>
+    
     
     
     
