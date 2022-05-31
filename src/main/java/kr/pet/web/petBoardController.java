@@ -24,7 +24,14 @@ public class petBoardController {
 		System.out.println("홈페이지 실행");
 	}
 	
-	
+	@RequestMapping("/boardInsert.do")
+	public @ResponseBody petBoardVO boardInsert(petBoardVO vo) {
+		System.out.println("글쓰기 기능 실행");
+		System.out.println(vo.toString());
+		
+		mapper.boardInsert(vo);
+		return vo;
+	}
 	@RequestMapping("/boardList.do")
 	public @ResponseBody List<petBoardVO> boardList(Model model) {
 		System.out.println("게시판전체보기 실행");

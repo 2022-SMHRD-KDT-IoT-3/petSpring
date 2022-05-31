@@ -5,8 +5,8 @@
         select * from tbl_member where mb_id=#{mb_id} and mb_pw=#{mb_pw}
     </select>
     <insert id="joinInsert" parameterType="kr.pet.mapper.petMemberVO">
-        insert into tbl_member values(#{mb_id},#{mb_pw},#{mb_nick},#{mb_name},
-        #{mb_phone},#{mb_address},#{mb_joindate},#{mb_type})
+        insert into tbl_member(mb_id,mb_pw,mb_nick,mb_name,mb_phone,mb_address) values(#{mb_id},#{mb_pw},#{mb_nick},#{mb_name},
+        #{mb_phone},#{mb_address})
     </insert>
     <select id="memberList" resultType="kr.pet.mapper.petMemberVO">
         select * from tbl_member where mb_id not in ('admin')
