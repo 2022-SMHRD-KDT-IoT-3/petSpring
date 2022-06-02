@@ -15,7 +15,7 @@
         select * from tbl_member where mb_id=#{mb_id}
     </select>
     <update id="updateService" parameterType="kr.pet.mapper.petMemberVO" >
-        update member set mb_pw=#{mb_pw}, mb_nick=#{mb_nick},mb_name=#{mb_name},mb_phone=#{mb_phone},
+        update tbl_member set mb_pw=#{mb_pw}, mb_nick=#{mb_nick},mb_name=#{mb_name},mb_phone=#{mb_phone},
         mb_address=#{mb_address} where mb_id=#{mb_id}
     </update>
     

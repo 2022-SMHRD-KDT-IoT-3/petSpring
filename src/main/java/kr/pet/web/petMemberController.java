@@ -44,10 +44,12 @@ public class petMemberController {
 	
 	//회원정보수정메소드
 	@RequestMapping("/updateService.do")
-	public void updateService(HttpSession session, petMemberVO vo) {
+	public @ResponseBody petMemberVO updateService(petMemberVO vo) {
 		System.out.println("회원정보실행");
+		System.out.println(vo);
 		mapper.updateService(vo);
-		session.setAttribute("info", vo);
+		//session.setAttribute("info", vo);
+		return vo;
 	
 	}
 	
