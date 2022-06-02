@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.pet.mapper.petCageMapper">
+      
+   <update id="Register" parameterType="kr.pet.mapper.CageVO" >
+        update tbl_cage set cg_state=#{cg_state}
+        where cg_state="No" and cg_serial=#{cg_serial} and cg_date=#{cg_date}
+    </update>  
+    
+    
+  
+    
+    
+</mapper>

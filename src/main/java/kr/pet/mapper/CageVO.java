@@ -12,5 +12,6 @@ import lombok.ToString;
 public class CageVO {
 	private String cg_serial;
 	private String cg_date;
+	private String cg_state;
 
 }
