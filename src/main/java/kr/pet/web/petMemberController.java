@@ -80,7 +80,7 @@ public class petMemberController {
 		return vo;
 	}
 	
-	
+	// id찾기 메소드
 	@RequestMapping("/findId.do")
 	public @ResponseBody petMemberVO findId(String mb_phone) {
 		String mb_id;
@@ -91,5 +91,14 @@ public class petMemberController {
 		return info;
 	}
 	
+	// 비밀번호 재설정 시 정보체크 메소드
+	@RequestMapping("/pwrsinfo.do")
+	public @ResponseBody petMemberVO pwrsinfo(petMemberVO vo) {
+		System.out.println("비밀번호 재설정 정보 확인");
+		petMemberVO info = mapper.pwrsinfo(vo);
+		System.out.println(vo.toString());
+		
+		return info;
+	}
 	
 }

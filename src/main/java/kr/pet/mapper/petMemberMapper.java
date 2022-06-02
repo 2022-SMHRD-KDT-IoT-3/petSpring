@@ -22,5 +22,7 @@ public interface petMemberMapper {
 
 	public petMemberVO findId(String mb_phone);
 
+	public petMemberVO pwrsinfo(petMemberVO vo);
+
 
 }
