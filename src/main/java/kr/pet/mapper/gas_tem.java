@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.pet.web.petCageController;
+
 
 public class gas_tem extends HttpServlet {
 	
@@ -29,11 +31,6 @@ public class gas_tem extends HttpServlet {
 	    System.out.println("a : " + a);
 	    System.out.println("Temperature : " + tem+ "ºC");
 	    System.out.println("Humidity : "+hum+ "%");
-
-	    out.print(ppm);
-	    out.print(a);
-	    out.print(tem);
-	    out.print(hum);
 		
 	    CageInfoVO dto = new CageInfoVO(cg_serial, ppm, tem, hum, angle);
 	    dataDAO dao = new dataDAO();
@@ -43,6 +40,14 @@ public class gas_tem extends HttpServlet {
 		dao.insertData(dto);
 		dao.dbclose();
 	    
+		String select = petCageController.control;
+	      System.out.println(select);
+	      if(select.equals("ON")) {
+				out.print("{\"SELECT\":\"ON\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
+				
+			}else if(select.equals("OFF")) {
+				out.print("{\"SELECT\":\"OFF\"}");
+			}
 	    
 		
 		

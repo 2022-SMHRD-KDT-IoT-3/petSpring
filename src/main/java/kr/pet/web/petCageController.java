@@ -12,7 +12,7 @@ import kr.pet.mapper.petMemberVO;
 
 @Controller
 public class petCageController {
-	public static String control;
+	public static String control = "OFF";
 	
 	@Inject
 	private petCageMapper mapper;
