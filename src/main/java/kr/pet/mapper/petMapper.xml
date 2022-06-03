@@ -7,6 +7,12 @@
         where mb_id=#{mb_id}
     </update>
     
+      <insert id="dog_regist" parameterType = "kr.pet.mapper.DogVO">
+          
+         insert into tbl_dog(mb_id, dog_name, dog_type, dog_age, dog_etc) values(#{mb_id},#{dog_name},#{dog_type},
+         #{dog_age}, #{dog_etc} )
+      </insert>
+    
     
     
 </mapper>

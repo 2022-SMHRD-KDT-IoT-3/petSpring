@@ -15,6 +15,4 @@ public class DogVO {
 	private String dog_type;
 	private String dog_age;
 	private String dog_etc;
-	
-
 }

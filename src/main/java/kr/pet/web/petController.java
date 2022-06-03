@@ -30,7 +30,20 @@ public class petController {
 		return dogvo;
 	}
 	
+		
+		
 	
-
-
-}
+		
+		
+	@RequestMapping("/dog_regist.do")
+	public @ResponseBody DogVO dog_regist(DogVO dogvo) {
+		System.out.println(dogvo.toString());
+		mapper.dog_regist(dogvo);
+		System.out.println("반려견 등록");
+		return dogvo;
+		}	
+		
+		
+	}
+	
+	

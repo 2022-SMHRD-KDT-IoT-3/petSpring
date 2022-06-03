@@ -9,13 +9,14 @@ import kr.pet.mapper.DogVO;
 @Mapper
 public interface petMapper {
 	
-//	public petMemberVO loginSelectOne(petMemberVO vo);
 	
 //	public void joinInsert(petMemberVO vo);
 	
-//	public List<petMemberVO> memberList();
 
-//	public petMemberVO idCheck(String id);
 	
 	public void dog_update(DogVO dogvo);
+
+	public void dog_regist(DogVO dogvo);
+
+	
 }
