@@ -12,6 +12,8 @@ import kr.pet.mapper.petMemberVO;
 
 @Controller
 public class petCageController {
+	public static String control;
+	
 	@Inject
 	private petCageMapper mapper;
 	
@@ -26,7 +28,12 @@ public class petCageController {
 			return cvo;
 			
 		}
-	
-	
+		
+	@RequestMapping("/fanControl.do")
+	public @ResponseBody String fanControl(String fan) {
+		System.out.println(fan);
+		control = fan;
+		return "완료";
+	}
 	
 }

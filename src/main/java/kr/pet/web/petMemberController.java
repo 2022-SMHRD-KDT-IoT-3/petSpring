@@ -22,11 +22,11 @@ public class petMemberController {
 	
 	//가입 메소드
 	@RequestMapping("/joinInsert.do")
-	public void joinInsert(petMemberVO vo) {
+	public @ResponseBody String joinInsert(petMemberVO vo) {
 		System.out.println(vo.toString());
 		mapper.joinInsert(vo);
 		System.out.println("회원가입기능요청");
-		
+		return "회원가입성공";
 	}
 	
 	
