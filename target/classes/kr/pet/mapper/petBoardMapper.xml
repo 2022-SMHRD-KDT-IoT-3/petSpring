@@ -20,7 +20,12 @@
     <update id="viewcount" parameterType="int">
         update tbl_board set board_viewcount = board_viewcount + 1 where board_seq = #{board_seq}
     </update>
-    
-    
+    <select id="cmtList" resultType="kr.pet.mapper.CmtVO">
+        select * from tbl_cmt where board_seq=#{board_seq} order by cmt_date desc;
+    </select>
+    <insert id="cmtInsert" parameterType="kr.pet.mapper.CmtVO">
+        insert into tbl_cmt(board_seq,mb_id,cmt_content)
+        values(#{board_seq},#{mb_id},#{cmt_content})
+    </insert>
     
 </mapper>
