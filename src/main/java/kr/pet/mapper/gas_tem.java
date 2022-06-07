@@ -25,6 +25,7 @@ public class gas_tem extends HttpServlet {
 	    String tem = request.getParameter("tem");
 	    String hum = request.getParameter("hum");
 	    String angle = "";
+	    String motor = petCageController.control;
 	    
 	    System.out.println("cg_serial: " + cg_serial);
 	    System.out.println("ppm: " + ppm);
@@ -32,7 +33,7 @@ public class gas_tem extends HttpServlet {
 	    System.out.println("Temperature : " + tem+ "ºC");
 	    System.out.println("Humidity : "+hum+ "%");
 		
-	    CageInfoVO dto = new CageInfoVO(cg_serial, ppm, tem, hum, angle);
+	    CageInfoVO dto = new CageInfoVO(cg_serial, ppm, tem, hum, angle, motor);
 	    dataDAO dao = new dataDAO();
 	   
 	    
@@ -40,12 +41,11 @@ public class gas_tem extends HttpServlet {
 		dao.insertData(dto);
 		dao.dbclose();
 	    
-		String select = petCageController.control;
-	      System.out.println(select);
-	      if(select.equals("ON")) {
+	      System.out.println(motor);
+	      if(motor.equals("ON")) {
 				out.print("{\"SELECT\":\"ON\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
 				
-			}else if(select.equals("OFF")) {
+			}else if(motor.equals("OFF")) {
 				out.print("{\"SELECT\":\"OFF\"}");
 			}
 	    

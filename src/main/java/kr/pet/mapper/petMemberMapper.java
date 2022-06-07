@@ -24,5 +24,5 @@ public interface petMemberMapper {
 
 	public petMemberVO pwrsinfo(petMemberVO vo);
 
-
+	
 }
