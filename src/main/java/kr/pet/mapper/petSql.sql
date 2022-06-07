@@ -1,4 +1,5 @@
 use pet;
+<<<<<<< HEAD
 select * from tbl_member;
 select * from tbl_board;
 select * from tbl_cage;
@@ -26,3 +27,6 @@ insert into tbl_dog values("null","최고","은","29","사람 말 잘함");
 insert into tbl_dog values("gogo","최고","은","29","사람 말 잘함");
 
 commit;
+=======
+select * from tbl_dog;
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-IoT-3/petSpring.git

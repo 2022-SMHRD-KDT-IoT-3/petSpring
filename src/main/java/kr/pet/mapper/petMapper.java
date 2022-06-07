@@ -18,5 +18,7 @@ public interface petMapper {
 
 	public void dog_regist(DogVO dogvo);
 
+	public List<DogVO> dog_select(String mb_id);
+
 	
 }

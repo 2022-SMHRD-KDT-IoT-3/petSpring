@@ -6,10 +6,12 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.pet.mapper.DogVO;
+import kr.pet.mapper.petBoardVO;
 import kr.pet.mapper.petMapper;
 import kr.pet.mapper.petMemberMapper;
 import kr.pet.mapper.petMemberVO;
@@ -23,12 +25,26 @@ public class petController {
 	
 	
 	@RequestMapping("/dog_update.do")
-	public @ResponseBody DogVO dog_update(HttpSession session, DogVO dogvo) {
+	public @ResponseBody DogVO dog_update(DogVO dogvo) {
 		System.out.println("개 정보 수정");
 		mapper.dog_update(dogvo);
 		//session.setAttribute("info", dogvo);
 		return dogvo;
 	}
+	
+	
+	
+	@RequestMapping("/dog_select.do")
+	public @ResponseBody List<DogVO> boardList(String mb_id) {
+		System.out.println("개 조회 실행");
+		List<DogVO> list = mapper.dog_select(mb_id);
+		System.out.println(list);
+		return list;
+		
+	}
+	
+	
+	
 	
 		
 		
