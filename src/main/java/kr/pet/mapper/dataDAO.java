@@ -55,13 +55,15 @@ public class dataDAO {
 					+ "    cg_temp, \n"
 					+ "    cg_hum, \n"
 					+ "    cg_angle, \n"
+					+ "    cg_motor, \n"
 					+ "    cg_time) \n"
 					+ "VALUES\n"
 					+ "    (?,\n"
 					+ "		?, \n"
 					+ "		?, \n"
 					+ "		?, \n"
-					+ "    1, \n"
+					+ "		1, \n"
+					+ "    ?, \n"
 					+ "    sysdate()) \n";
 
 			
@@ -72,6 +74,7 @@ public class dataDAO {
 				psmt.setString(2, vo.getCg_gas());
 				psmt.setString(3, vo.getCg_temp());
 				psmt.setString(4, vo.getCg_hum());
+				psmt.setString(5, vo.getCg_motor());
 
 				
 				psmt.executeUpdate();
