@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.pet.mapper.CmtVO;
+import kr.pet.mapper.QnaBoardVO;
+import kr.pet.mapper.QnaCmtVO;
 import kr.pet.mapper.petBoardMapper;
 import kr.pet.mapper.petBoardVO;
 
@@ -63,32 +65,75 @@ public class petBoardController {
 	}
 
 	
-	//게시판 글 보기 기능 + 조회수 올라가는 기능 
+	//게시판 글 보기 기능 --- 안드로이드랑 연동 안함 (안해도됨)
 	@RequestMapping("/boardContents.do")
-	public @ResponseBody petBoardVO boardContents(int idx) {
+	public @ResponseBody petBoardVO boardContents(int board_seq) {
 		System.out.println("글보기 기능실행");
-		mapper.count(idx);			//해당글을 보면 조회가 올라가는 기능
-		petBoardVO vo = mapper.boardContents(idx);
+		petBoardVO vo = mapper.boardContents(board_seq);
 		return vo;
 	}
 	
+	
+	
 	// 게시글 수정
 	@RequestMapping("/boardUpdate.do")
-	public String boardUpdate(petBoardVO vo) {
+	public @ResponseBody petBoardVO boardUpdate(petBoardVO vo) {
 		System.out.println("글 수정 실행");
 		System.out.println(vo.toString());
 		mapper.boardUpdate(vo);
-		return "수정완료";
+		return vo;
 	}
 	
 	// 게시글 삭제
 	@RequestMapping("/boardDelete.do")
-	public String boardDelete(int idx) {
+	public @ResponseBody String boardDelete(int board_seq) {
 		System.out.println("글 삭제 실행");
-		System.out.println(idx);
-		mapper.boardDelete(idx);
+		System.out.println(board_seq);
+		mapper.boardDelete(board_seq);
 		
-		return "redirect:/boardList.do";
+		return "삭제 완료";
 	}
+	
+	
+	
+	
+	
+	
+	// 여기부터 문의 사항 게시판 
+	
+	@RequestMapping("/qnaList.do")
+	public @ResponseBody List<QnaBoardVO> qnaList() {
+		System.out.println("문의게시판전체보기 실행");
+		List<QnaBoardVO> list = mapper.qnaList();
+		return list;
+	}
+	
+	//문의글 디비 등록 메소드
+	@RequestMapping("/qnaInsert.do")
+	public @ResponseBody String qnaInsert(QnaBoardVO vo) {
+		System.out.println("문의글쓰기 기능 실행");
+		System.out.println(vo.toString());
+		mapper.qnaInsert(vo);
+		return "완료";
+	}
+	
+	//관리자가쓴 댓글 조회 메소드
+	@RequestMapping("/qnaCmtList.do")
+	public @ResponseBody List<QnaCmtVO> qnaCmtList(String qna_seq) {
+		System.out.println("문의게시판 댓글 전체보기 실행");
+		System.out.println("qna seq 값 : "+qna_seq);
+		List<QnaCmtVO> list = mapper.qnaCmtList(qna_seq);
+		return list;
+	}
+	
+	//관리자 댓글 디비 입력 메소드
+	@RequestMapping("/qnaCmtInsert.do")
+	public @ResponseBody String qnaCmtInsert(QnaCmtVO vo) {
+		System.out.println("글쓰기 기능 실행");
+		System.out.println(vo.toString());
+		mapper.qnaCmtInsert(vo);
+		return "완료";
+	}
+	
 }
 
