@@ -1,5 +1,6 @@
 package kr.pet.web;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -99,6 +100,14 @@ public class petMemberController {
 		System.out.println(vo.toString());
 		
 		return info;
+	}
+	
+	@RequestMapping("/new_pwrs.do")
+	public void new_pwrs(petMemberVO vo){
+		System.out.println("------구분선-------");
+		mapper.new_pwrs(vo);
+		System.out.println(vo.toString());
+		
 	}
 	
 }
