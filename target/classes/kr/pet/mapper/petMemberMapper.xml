@@ -5,8 +5,8 @@
         select * from tbl_member where mb_id=#{mb_id} and mb_pw=#{mb_pw}
     </select>
     <insert id="joinInsert" parameterType="kr.pet.mapper.petMemberVO">
-        insert into tbl_member(mb_id, mb_pw, mb_nick, mb_name, mb_phone, mb_address) values(#{mb_id},#{mb_pw},#{mb_nick},#{mb_name},
-        #{mb_phone},#{mb_address})
+        insert into tbl_member values(#{mb_id},#{mb_pw},#{mb_nick},#{mb_name},
+        #{mb_phone},#{mb_address},#{mb_joindate},#{mb_type})
     </insert>
     <select id="memberList" resultType="kr.pet.mapper.petMemberVO">
         select * from tbl_member where mb_id not in ('admin')
@@ -16,7 +16,8 @@
     </select>
     <update id="updateService" parameterType="kr.pet.mapper.petMemberVO" >
         update tbl_member set mb_pw=#{mb_pw}, mb_nick=#{mb_nick},mb_name=#{mb_name},mb_phone=#{mb_phone},
-        mb_address=#{mb_address} where mb_id=#{mb_id}
+        mb_address=#{mb_address} 
+        where mb_id=#{mb_id}
     </update>
     
     <select id="findId" parameterType ="String" resultType="kr.pet.mapper.petMemberVO">
@@ -24,8 +25,12 @@
     </select>
     
     <select id="pwrsinfo" parameterType="kr.pet.mapper.petMemberVO" resultType="kr.pet.mapper.petMemberVO">
-        select * from tbl_member where mb_name=#{mb_name} and mb_id=#{mb_id} and mb_phone=#{mb_phone} 
+        select * from tbl_member where mb_id=#{mb_id} 
     </select>
+    
+    <update id="new_pwrs" parameterType="kr.pet.mapper.petMemberVO">
+        update tbl_member set mb_pw=#{mb_pw} where mb_id=#{mb_id}
+    </update>
     
     
     
