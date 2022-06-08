@@ -123,17 +123,36 @@ public class petBoardController {
 		System.out.println("문의게시판 댓글 전체보기 실행");
 		System.out.println("qna seq 값 : "+qna_seq);
 		List<QnaCmtVO> list = mapper.qnaCmtList(qna_seq);
+		System.out.println(list);
 		return list;
 	}
 	
 	//관리자 댓글 디비 입력 메소드
 	@RequestMapping("/qnaCmtInsert.do")
 	public @ResponseBody String qnaCmtInsert(QnaCmtVO vo) {
-		System.out.println("글쓰기 기능 실행");
+		System.out.println("관리자 댓쓰기 기능 실행");
 		System.out.println(vo.toString());
 		mapper.qnaCmtInsert(vo);
 		return "완료";
 	}
 	
+	// 문의게시글 수정
+	@RequestMapping("/qnaUpdate.do")
+	public @ResponseBody QnaBoardVO qnaUpdate(QnaBoardVO vo) {
+		System.out.println("글 수정 실행");
+		System.out.println(vo.toString());
+		mapper.qnaUpdate(vo);
+		return vo;
+	}
+	
+	// 문의 게시글 삭제
+	@RequestMapping("/qnaDelete.do")
+	public @ResponseBody String qnaDelete(int qna_seq) {
+		System.out.println("글 삭제 실행");
+		System.out.println(qna_seq);
+		mapper.qnaDelete(qna_seq);
+		
+		return "삭제 완료";
+	}
 }
 

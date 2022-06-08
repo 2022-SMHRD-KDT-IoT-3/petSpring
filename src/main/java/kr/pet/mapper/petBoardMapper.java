@@ -36,4 +36,8 @@ public interface petBoardMapper {
 
 	public void qnaCmtInsert(QnaCmtVO vo);
 
+	public void qnaUpdate(QnaBoardVO vo);
+
+	public void qnaDelete(int qna_seq);
+
 }

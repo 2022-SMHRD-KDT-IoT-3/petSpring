@@ -44,6 +44,12 @@
         insert into tbl_qna_cmt(qna_seq,qna_cmt_content)
         values(#{qna_seq},#{qna_cmt_content})
     </insert>
+    <update id="qnaUpdate" parameterType="kr.pet.mapper.QnaBoardVO">
+        update tbl_qna set qna_title=#{qna_title}, qna_content=#{qna_content} where qna_seq=#{qna_seq}
+    </update>
+    <delete id="qnaDelete" parameterType="int">
+        delete from tbl_qna where qna_seq=#{qna_seq}
+    </delete>
     
     
 </mapper>
