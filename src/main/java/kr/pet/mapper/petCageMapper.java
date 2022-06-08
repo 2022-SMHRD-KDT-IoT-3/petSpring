@@ -1,5 +1,7 @@
 package kr.pet.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 
@@ -8,5 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 
 	public void Register(CageVO cvo);
+	
 
+	public List<CageInfoVO> select_cage(CageInfoVO civo);
 }

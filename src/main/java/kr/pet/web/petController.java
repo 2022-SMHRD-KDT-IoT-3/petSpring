@@ -44,11 +44,6 @@ public class petController {
 	}
 	
 	
-	
-	
-		
-		
-	
 		
 		
 	@RequestMapping("/dog_regist.do")
