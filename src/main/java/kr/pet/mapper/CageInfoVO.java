@@ -26,9 +26,6 @@ public class CageInfoVO {
 		this.cg_hum = cg_hum;
 		this.cg_angle = cg_angle;
 		this.cg_motor = cg_motor;
-<<<<<<< HEAD
-=======
 		
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-IoT-3/petSpring.git
 	}
 }
