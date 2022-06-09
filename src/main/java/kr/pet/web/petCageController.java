@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.pet.mapper.CageInfoVO;
 import kr.pet.mapper.CageVO;
 import kr.pet.mapper.DogVO;
+import kr.pet.mapper.MatchingVO;
+import kr.pet.mapper.petBoardVO;
 import kr.pet.mapper.petCageMapper;
 import kr.pet.mapper.petMemberVO;
 
@@ -65,6 +67,23 @@ public class petCageController {
 	
 	
 	
+	//케이지 매칭을 위한 리스트 출력 메소드
+	@RequestMapping("/matchingList.do")
+	public @ResponseBody List<MatchingVO> matchingList() {
+		System.out.println("매칭테이블전체보기 실행");
+		List<MatchingVO> list = mapper.matchingList();
+		System.out.println("매칭 테이블 출력 : "+list);
+		return list;
+	}
+	
+	// 케이지 매칭시 mb_id 입력받아 디비 update하는 메소드
+	@RequestMapping("/cageMbidUpdate.do")
+	public @ResponseBody String boardUpdate(MatchingVO vo) {
+		System.out.println("케이지매칭 아이디 수정 실행");
+		System.out.println(vo.toString());
+		mapper.cageMbidUpdate(vo);
+		return "완료";
+	}
 	
 	
 }

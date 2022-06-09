@@ -16,6 +16,13 @@ where (cg_serial, cg_time) in
 order by t1.cg_serial;
     </select>
     
+   <select id="matchingList" resultType="kr.pet.mapper.MatchingVO">
+        select * from tbl_matching;
+    </select>
+    <update id="cageMbidUpdate" parameterType="kr.pet.mapper.MatchingVO">
+        update tbl_matching set mb_id=#{mb_id} where cg_serial=#{cg_serial}
+    </update>
+   
    
    <select id="select_angle" resultType="kr.pet.mapper.CageInfoVO">
        select * 

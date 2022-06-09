@@ -19,5 +19,9 @@ import org.apache.ibatis.annotations.Mapper;
 	
 	
 	
+	public List<MatchingVO> matchingList();
+
+
+	public void cageMbidUpdate(MatchingVO vo);
 	
 }
