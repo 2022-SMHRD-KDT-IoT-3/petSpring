@@ -13,4 +13,11 @@ import org.apache.ibatis.annotations.Mapper;
 	
 
 	public List<CageInfoVO> select_cage(CageInfoVO civo);
+
+
+	public List<MatchingVO> matchingList();
+
+
+	public void cageMbidUpdate(MatchingVO vo);
+	
 }
