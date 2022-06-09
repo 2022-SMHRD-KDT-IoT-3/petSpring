@@ -4,17 +4,29 @@
       
    <update id="Register" parameterType="kr.pet.mapper.CageVO" >
         update tbl_cage set cg_state=#{cg_state}
-        where cg_state="No" and cg_serial=#{cg_serial} and cg_date=#{cg_date}
+        where cg_state="no" and cg_serial=#{cg_serial} and cg_date=#{cg_date}
     </update>
     
    <select id="select_cage"  resultType="kr.pet.mapper.CageInfoVO">
- 	select *from (select cg_serial, cg_motor
+ 	select *from (select cg_serial, cg_motor,cg_gas
 from tbl_cageinfo
 where (cg_serial, cg_time) in
 (select cg_serial, max(cg_time) as date_time
 		from tbl_cageinfo group by cg_serial)) t1
 order by t1.cg_serial;
     </select>
+    
+   
+   <select id="select_angle" resultType="kr.pet.mapper.CageInfoVO">
+       select * 
+from
+(select cg_serial, cg_time, cg_angle
+from tbl_cageinfo
+where(cg_serial, cg_time) in 
+(select cg_serial, max(cg_time) as date_time
+from tbl_cageinfo group by cg_serial)) t1
+order by t1.cg_serial;
+   </select>
     
    
 </mapper>

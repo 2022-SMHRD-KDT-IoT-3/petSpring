@@ -45,11 +45,27 @@ public class petCageController {
 
 	@RequestMapping("/select_cage.do") 
 	public @ResponseBody List<CageInfoVO> select_cage(CageInfoVO civo) {
-		System.out.println("케이지 컨트롤하러 갑니다");
+		System.out.println("환풍기 컨트롤");
 		List<CageInfoVO> list = (List<CageInfoVO>)mapper.select_cage(civo);
 		System.out.println(list);
 		return list;
 	}
+	
+	
+	@RequestMapping("/select_angle.do")
+	public @ResponseBody List<CageInfoVO> select_angle(CageInfoVO civo){
+		System.out.println("배급기 컨트롤");
+		List<CageInfoVO> list = (List<CageInfoVO>)mapper.select_angle(civo);
+		System.out.println(list);
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
 
