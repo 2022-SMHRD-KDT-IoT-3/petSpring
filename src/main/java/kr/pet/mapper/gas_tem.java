@@ -34,7 +34,7 @@ public class gas_tem extends HttpServlet {
 	    System.out.println("Temperature : " + tem+ "ºC");
 	    System.out.println("Humidity : "+hum+ "%");
 		
-	    CageInfoVO dto = new CageInfoVO(cg_serial, ppm, tem, hum, angle, motor);
+	    CageInfoVO dto = new CageInfoVO(cg_serial, ppm, tem, hum, angle, motor, isgas);
 	    dataDAO dao = new dataDAO();
 	   
 	    
