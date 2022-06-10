@@ -22,6 +22,17 @@ import org.apache.ibatis.annotations.Mapper;
 	public List<MatchingVO> matchingList();
 
 
-	public void cageMbidUpdate(MatchingVO vo);
+	public void cageMbidUpdate(MatchingVO mvo);
+
+
+	//public List<MatchingVO> cageMbidUpdate();
+
+
+
+	
+	
+
+
+	//public List<MatchingVO> cageMbidUpdate(MatchingVO vo);
 	
 }

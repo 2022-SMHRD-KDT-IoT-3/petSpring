@@ -77,12 +77,22 @@ public class petCageController {
 	}
 	
 	// 케이지 매칭시 mb_id 입력받아 디비 update하는 메소드
+//	@RequestMapping("/cageMbidUpdate.do")
+//	public @ResponseBody List<MatchingVO>(MatchingVO vo) {
+//		System.out.println("케이지매칭 아이디 수정 실행");
+//		System.out.println(vo.toString());
+//		mapper.cageMbidUpdate(vo);
+//		return "완료";
+//	}
+	
+	
+	
+	
 	@RequestMapping("/cageMbidUpdate.do")
-	public @ResponseBody String boardUpdate(MatchingVO vo) {
-		System.out.println("케이지매칭 아이디 수정 실행");
-		System.out.println(vo.toString());
-		mapper.cageMbidUpdate(vo);
-		return "완료";
+	public @ResponseBody MatchingVO cageMbidUpdate(MatchingVO mvo) {
+		System.out.println("준범 매칭");
+		mapper.cageMbidUpdate(mvo);
+		return mvo;
 	}
 	
 	
