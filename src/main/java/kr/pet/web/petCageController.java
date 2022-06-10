@@ -20,6 +20,7 @@ import kr.pet.mapper.petMemberVO;
 @Controller
 public class petCageController {
 	public static String control = "OFF";
+	public static String feed = "OFF";
 	
 	@Inject
 	private petCageMapper mapper;
@@ -42,6 +43,12 @@ public class petCageController {
 		return "완료";
 	}
 	
+	@RequestMapping("/feedControl.do")
+	public @ResponseBody String feedControl(String angle) {
+		System.out.println(angle);
+		feed = angle;
+		return "완료";
+	}
 	
 	
 

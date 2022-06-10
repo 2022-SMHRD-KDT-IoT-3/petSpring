@@ -21,15 +21,16 @@ public class gas_tem extends HttpServlet {
 	    
 	    String cg_serial = request.getParameter("cg_serial");
 	    String ppm = request.getParameter("ppm");
-	    String a = request.getParameter("a");
+	    String isgas = request.getParameter("isgas");
 	    String tem = request.getParameter("tem");
 	    String hum = request.getParameter("hum");
 	    String angle = "";
 	    String motor = petCageController.control;
+	    String feed = petCageController.feed;
 	    
 	    System.out.println("cg_serial: " + cg_serial);
 	    System.out.println("ppm: " + ppm);
-	    System.out.println("a : " + a);
+	    System.out.println("isgas : " + isgas);
 	    System.out.println("Temperature : " + tem+ "ºC");
 	    System.out.println("Humidity : "+hum+ "%");
 		
@@ -42,12 +43,22 @@ public class gas_tem extends HttpServlet {
 		dao.dbclose();
 	    
 	      System.out.println(motor);
-	      if(motor.equals("ON")) {
-				out.print("{\"SELECT\":\"ON\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
-				
-			}else if(motor.equals("OFF")) {
-				out.print("{\"SELECT\":\"OFF\"}");
-			}
+	      
+	      if(motor.equals("ON") && feed.equals("ON")) {
+	    	  out.print("{\"SELECT\":\"ON\",\"FEED\":\"ON\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
+	    	  petCageController.feed = "OFF";
+	      }else if(motor.equals("ON") && feed.equals("OFF")) {
+	    	  out.print("{\"SELECT\":\"ON\",\"FEED\":\"OFF\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
+	      }else if(motor.equals("OFF") && feed.equals("ON")) {
+	    	  out.print("{\"SELECT\":\"OFF\",\"FEED\":\"ON\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
+	    	  petCageController.feed = "OFF";
+	      }else if(motor.equals("OFF") && feed.equals("OFF")) {
+	    	  out.print("{\"SELECT\":\"OFF\",\"FEED\":\"OFF\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
+	      }
+			
+	      
+	      System.out.println(feed);
+	      
 	    
 		
 		
